@@ -1,0 +1,24 @@
+def DispPhones(request):
+
+  URLflipkart64="https://www.flipkart.com/search?q=redmi+note+11+pro+plus&sid=tyy%2C4io&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_2_13_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_2_13_na_na_na&as-pos=2&as-type=RECENT&suggestionId=redmi+note+11+pro+plus%7CMobiles&requestId=6caa3e04-4f0c-4628-bb5c-d5c3c6e24695&as-searchtext=redmi+note+11"
+  pageflipkart64 =r.get(URLflipkart64)
+  soupflipkart64 =bs(pageflipkart64.content, "html.parser")
+  priceflipkart64=soupflipkart64.find_all("div",{"class":"col col-7-12"})
+  priceflipkart=soupflipkart64.find_all("div",{"class":"fMghEO"})
+  l=[]
+  for i in priceflipkart64: 
+      if i.get_text()[0:5]=="Redmi":
+          img=i.find("img")
+          #print(img)
+          i=list(i)
+          for j in range(0,2):
+              print(i[j].get_text())
+              l.append(i[j].get_text())
+          data=i[2].find("ul")
+          for data1 in data:
+              print(data1.get_text())
+              l.append(data1.get_text())
+          l.append(img['src'])
+  print(l)
+  
+  return JsonResponse(l,safe=False)

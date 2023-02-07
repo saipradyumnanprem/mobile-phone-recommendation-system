@@ -1,0 +1,145 @@
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickSave</title>
+  <!-- CSS only -->
+  <link href="{% static 'css/product.css' %}" rel="stylesheet">
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet"> 
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body style="background-color: black">
+
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="{% static 'img/QuickSave.png' %}" width="150" height="50">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Phones
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">iPhone</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Laptops
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">-</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    </ul>
+                  </div> 
+                  <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Speakers
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">-</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    </ul>
+                  </div> 
+                  <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Smartwatches
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">-</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    </ul>
+
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Recommend
+                    </a>                    
+
+                  </div>    
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2" onclick="window.location.href='login.php';">Login</button>
+          <button type="button" class="btn btn-warning" onclick="window.location.href='signup.html';">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <body>
+
+      <section class="container pt-2">
+
+        <h2 class="text-center text-white pt-2 pb-2">Here's what we recommend for you: </h2>
+
+        {% for name,phones in products.items %}
+
+        <div class="card mb-4 search-prod" style="max-width: 490px;">
+          <div class="row g-0">
+            <div class="col-md-4 box-img d-flex align-items-center text-center">
+              <img src="{{phones.image}}" class="img-fluid rounded-start" alt="" width="mx-auto" height="mx-auto">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body ">
+                
+                <h5 class="card-title">{{ name }}</h5>
+
+                <p class="card-text col">RAM: {{phones.ram}} GB</p>
+                <p class="card-text">Storage: {{phones.rom}} GB</p>
+                <p class="card-text">Battery: {{phones.battery}} mAh</p>
+                <p class="card-text">Size: {{phones.size}} '</p>
+                <!--<p class="card-text">Front Camera: {{ front_camera }}</p>-->
+                <p class="card-text">Rear Camera: {{phones.camera}} MP</p>
+                <p class="card-text">Price: ₹ {{phones.budget}}</p>
+                <button type="button" class="btn btn-success btn-sm col" e="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Rating : {{phones.rating}} /   5.0</button>
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </section>
+      
+
+
+
+    </body>
+  
+    
+      
+  
+  </main>
+
+  
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  
+  </main>
+    
+    
+</body>
+</html>

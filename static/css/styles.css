@@ -1,0 +1,72 @@
+
+.survey-prod{  
+  max-width: fit-content;
+  border-radius: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.grid-prod{
+  background-image: url(/static/img/phone-bg.png);
+  width: 600px;
+  height: 600px;
+}
+
+
+.select-spec{
+  width: 200px;
+  position: absolute;
+  top: 120;
+  left: 213;
+  padding-bottom: 1.4rem;
+}
+
+.form-spec{
+  max-width: 200px;
+}
+
+.blank-rupee{
+  max-width: 5px;
+}
+
+.search-button{
+  position: absolute;
+  top: 120;
+  left: 213;
+
+}
+
+.search-prod{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  border: 1rem;
+  border-color: black;
+}
+
+.name-s{
+  position: absolute;
+  max-width: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  top: 120;
+  
+}
+
+.select-drop{
+  max-width: 100px;
+}
+
+
+/* NEW CSS*/
+
+spec-phones{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 250px;
+}
+

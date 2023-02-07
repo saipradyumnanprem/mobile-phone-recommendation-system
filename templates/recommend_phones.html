@@ -1,0 +1,262 @@
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickSave</title>
+  <!-- CSS only -->
+  <link href="{% static 'css/product.css' %}" rel="stylesheet">
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet"> 
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body style="background-color: black ;">
+
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="{% static 'img/QuickSave.png' %}" width="150" height="50">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Phones
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">iPhone</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Laptops
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">-</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    </ul>
+                  </div> 
+                  <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Speakers
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">-</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    </ul>
+                  </div> 
+                  <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Smartwatches
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">-</a></li>
+                      <!--<li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    </ul>
+
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Recommend
+                    </a>                    
+
+                  </div>    
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2" onclick="window.location.href='login.php';">Login</button>
+          <button type="button" class="btn btn-warning" onclick="window.location.href='signup.html';">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <body>
+
+      <section class="container pb-2">
+
+        <h2 class="text-center text-white pt-4 pb-4">Try out our Mobile phone recommendation system: </h2>
+
+        <div class="survey-prod block border bg-dark">
+          
+          <div class="grid-prod">
+
+            <div class="text-center pt-5">
+              <img class="" src="{% static 'img/QuickSave.png' %}" width="180" height="60">
+            </div>
+            
+            <form method="post" action="{% url 'results' %}">
+            {% csrf_token %}
+            <table class="table table-borderless text-white spec-phones pt-2" style="display: block; margin-left: auto; margin-right: auto; max-width: 250px;">
+              <tbody>
+                
+                <tr class="align-middle">
+                  <td class="text-center"><span class="fw-bold">RAM : </span></td>
+                  <td>
+                    <select name="ram" class="form-select form-select-sm">
+                      <option value="2" class="text-center">2 GB</option>
+                      <option value="3" class="text-center">3 GB</option>
+                      <option value="4" class="text-center">4 GB</option>
+                      <option value="6" class="text-center">6 GB</option>
+                      <option value="8" class="text-center">8 GB</option>
+                      <option value="16" class="text-center">16 GB</option>
+                     
+                    </select>
+                  </td>
+                </tr>
+      
+                <tr class="align-middle">
+                  <td class="text-center"><span class="fw-bold">Storage : </span></td>
+                  <td>
+                    <select name="rom" class="form-select form-select-sm">
+                      <option value="16" class="text-center">16 GB</option>
+                      <option value="32" class="text-center">32 GB</option>
+                      <option value="64" class="text-center">64 GB</option>
+                      <option value="128" class="text-center">128 GB</option>
+                      <option value="256" class="text-center">256 GB</option>
+                     
+                    </select>
+                  </td>
+                </tr>
+      
+                <tr class="align-middle">
+                  <td class="text-center"><span class="fw-bold">Size : </span></td>
+                  <td>
+                    <select name="size" class="form-select form-select-sm">
+                        <option value="4.5" class="text-center">4.5 Inch</option>
+                        <option value="5.0" class="text-center">5.0 Inch</option>
+                        <option value="5.5" class="text-center">5.5 Inch</option>
+                        <option value="6.0" class="text-center">6.0 Inch</option>
+                        <option value="6.5" class="text-center">6.5 Inch</option>
+                        <option value="7.0" class="text-center">7.0 Inch</option>
+                    </select>
+                  </td>
+                </tr>
+      
+                <!--<tr class="align-middle">
+                  <td class="text-center"><span class="fw-bold">Front Camera : </span></td>
+                  <td>
+                    <select name="front-camera" class="form-select form-select-sm">
+                      <option value="Option 1" class="text-center">2 GB</option>
+                      <option value="Option 2" class="text-center">3 GB</option>
+                      <option value="Option 3" class="text-center">4 GB</option>
+                      <option value="Option 4" class="text-center">6 GB</option>
+                      <option value="Option 5" class="text-center">8 GB</option>
+                      <option value="Option 6" class="text-center">16 GB</option>
+                    </select>
+                  </td>
+                </tr>-->
+      
+                <tr class="align-middle">
+                  <td class="text-center"><span class="fw-bold">Rear Camera : </span></td>
+                  <td>
+                    <select name="camera" class="form-select form-select-sm">
+                      <option value="5" class="text-center">5 MP</option>
+                      <option value="8" class="text-center">8 MP</option>
+                      <option value="12" class="text-center">12 MP</option>
+                      <option value="13" class="text-center">13 MP</option>
+                      <option value="16" class="text-center">16 MP</option>
+                      <option value="48" class="text-center">48 MP</option>
+                      <option value="64" class="text-center">64 MP</option>
+                    </select>
+                  </td>
+                </tr>
+      
+                <tr class="align-middle">
+                  <td class="text-center"><span class="fw-bold">Battery : </span></td>
+                  <td>
+                    <select name="battery" class="form-select form-select-sm">
+                      <option value="2500" class="text-center">2500 MAh</option>
+                      <option value="3000" class="text-center">3000 MAh</option>
+                      <option value="3500" class="text-center">3500 MAh</option>
+                      <option value="4000" class="text-center">4000 MAh</option>
+                      <option value="4500" class="text-center">4500 MAh</option>
+                      <option value="5000" class="text-center">5000 MAh</option>
+                      <option value="6000" class="text-center">6000 MAh</option>
+                     
+                    </select>
+                  </td>
+                </tr>
+
+                <tr class="align-middle">
+                  <td class="text-center"><span class="fw-bold">Rating : </span></td>
+                  <td>
+                    <select name="rating" class="form-select form-select-sm">
+                      <option value="2.5" class="text-center">2.5</option>
+                      <option value="3.0" class="text-center">3.0</option>
+                      <option value="3.3" class="text-center">3.3</option>
+                      <option value="3.5" class="text-center">3.5</option>
+                      <option value="3.7" class="text-center">3.7</option>
+                      <option value="4.0" class="text-center">4.0</option>
+                      <option value="4.3" class="text-center">4.3</option>
+                      <option value="4.5" class="text-center">4.5</option>
+                      <option value="4.7" class="text-center">4.7</option>
+                      <option value="5.0" class="text-center">5.0</option>
+                     
+                    </select>
+                  </td>
+                </tr>
+                     
+              </tbody>
+            </table>
+
+            <div class="text-center">
+              
+              <div class="input-group mb-3" style="max-width: 140px; margin-left: auto; margin-right: auto;">
+                <span class="input-group-text" id="basic-addon1">₹</span>
+                <input type="text" class="form-control" placeholder="Budget" aria-label="budget" aria-describedby="basic-addon1" name="budget">
+              </div>
+
+            </div>
+
+            <div class="text-center pt-2">
+              <button class="btn btn-primary me-md-2" type="submit">
+                Search
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+          
+          {}
+            
+          </div>
+          
+
+        </div> 
+         
+      </section>
+
+    </body>
+  
+    
+      
+  
+  </main>
+
+  
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  
+  </main>
+    
+    
+</body>
+</html>

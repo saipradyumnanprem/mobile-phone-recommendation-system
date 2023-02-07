@@ -1,0 +1,33 @@
+:root{
+  --color-spl: #734ba4; 
+  --bgcol: #000;
+  --color-spl2: #121212;
+  --gray: #343a40;
+
+
+}
+
+
+body{
+  background-color: var(--bgcol);
+  /*color: #fff;*/
+}
+
+
+.prod-box{
+  max-width: fit-content; 
+
+}
+
+
+.search-prod{
+  margin-right: auto;
+  margin-left: 10rem;
+  margin-top: 2rem;
+  background-color: white;
+
+}
+
+.box-img{
+  margin: 0.5rem 0.5rem;
+}
